@@ -1,6 +1,8 @@
 # Ex-6-IMPLEMENTATION-OF-THE-BACK-END-OF-THE-COMPILER-
 IMPLEMENTATION OF THE BACK END OF THE COMPILER 
-# Date :
+# Name: VAISHNAVIDEVI V
+# Reg no: 212223040230
+# Date : 10/11/24
 # Aim :
 To write a program to implement the back end of the compiler.
 # ALGORITHM
@@ -11,6 +13,47 @@ To write a program to implement the back end of the compiler.
 5. Target code for the given statement is produced.
 6. Stop the program.
 # PROGRAM
+```
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+int main()
+{
+    int i = 2, j = 0, k = 2, k1 = 0;
+    char ip[10], kk[10];
+    FILE *fp;
+    printf("Enter the filename of the intermediate code: ");
+    scanf("%s", kk);
+    fp = fopen(kk, "r");
+    if (fp == NULL) {
+        printf("\nError in opening the file\n");
+        return 1;
+    }
+    printf("\nStatement\tTarget Code\n\n");
+    while (fscanf(fp, "%s", ip) != EOF)
+    {
+        printf("%s\tMOV %c,R%d SUB ", ip, ip[i + k], j);
+        if (ip[i + 1] == '+')
+            printf("ADD ");
+        else
+            printf("SUB ");
+        if (islower(ip[i]))
+            printf("%c,R%d\n", ip[i + k1], j);
+        else
+            printf("%c,%c\n", ip[i], ip[i + 2]);
+        j++;
+        k1 = 2;
+        k = 0;
+    }
+    fclose(fp);
+    return 0;
+}
+```
 # OUTPUT
+![WhatsApp Image 2024-10-28 at 14 02 01_4e6ed48f](https://github.com/user-attachments/assets/703510ed-47a7-452c-b8b6-4b237d4cba42)
+
+
+![WhatsApp Image 2024-10-28 at 14 02 10_9e34a711](https://github.com/user-attachments/assets/6af037ce-a03e-4e95-8c0a-ff86ded1d94e)
+
 # Result
 The back end of the compiler is implemented successfully, and the output is verified.
